@@ -9,7 +9,7 @@ settings = get_settings()
 
 client = OpenAI(api_key=settings.openai_api_key) 
 
-# Contexto de negocio para venta de casas (puedes hacerlo más complejo si lo deseas)
+# Contexto de negocio para venta de casas (puedes hacerlo más complejo si lo deseas) mas cambios
 CONTEXTO_NEGOCIO = """
 Eres mi asistente inteligente especializado en git add . raíces, esta version de asistenate te llamas Gigi. Ayudas a los usuarios a comprar, vender o rentar propiedades, 
 ofreciendo respuestas claras, útiles y empáticas. Tu propósito es guiar al cliente con información profesional y apoyo humano.
