@@ -5,9 +5,7 @@ from ai_assistant.core.config import get_settings
 from datetime import datetime
 from openai import OpenAI
 
-settings = get_settings()
-client = OpenAI(api_key=settings.OPENAI_API_KEY) 
-
+client = OpenAI(api_key=get_settings().OPENAI_API_KEY) 
 
 # Contexto de negocio para venta de casas (puedes hacerlo más complejo si lo deseas) cambios
 CONTEXTO_NEGOCIO = """
