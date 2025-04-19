@@ -1,10 +1,13 @@
 from ai_assistant.dao import dao_ai_assistant_add_message_by_id
 from ai_assistant.dao import dao_ai_assistant_upsert_user
 from ai_assistant.dao import dao_factory
+from core.config import get_settings
 from datetime import datetime
 from openai import OpenAI
 
-client = OpenAI(api_key="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") 
+settings = get_settings()
+
+client = OpenAI(api_key=settings.openai_api_key) 
 
 # Contexto de negocio para venta de casas (puedes hacerlo más complejo si lo deseas)
 CONTEXTO_NEGOCIO = """

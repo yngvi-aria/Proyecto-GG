@@ -1,9 +1,12 @@
 from datetime import datetime
 from pymongo import MongoClient
+from core.config import get_settings
 from bson import ObjectId  # Para convertir el ID si viene como string
 
+settings = get_settings()
+
 # === Configuración de conexión ===
-MONGO_URI = "mongodb+srv://ai_assistan_user_phyton:111Nfdgalye@cluster0.gfi5cti.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI = settings.mongodb_uri
 DB_NAME = "gigi_real_estate"
 COLLECTION_NAME = "ai_assistant"
 
