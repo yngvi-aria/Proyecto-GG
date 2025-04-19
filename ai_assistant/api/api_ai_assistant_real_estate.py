@@ -5,6 +5,7 @@ from core.config import get_settings
 from datetime import datetime
 from openai import OpenAI
 
+#datos
 settings = get_settings()
 
 client = OpenAI(api_key=settings.openai_api_key) 
