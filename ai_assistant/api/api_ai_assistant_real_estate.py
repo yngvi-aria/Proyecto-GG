@@ -1,6 +1,6 @@
 from ai_assistant.dao.dao_ai_assistant_add import ai_assistant_add
 from ai_assistant.dao.dao_ai_assistant_upsert import ai_assistant_upsert
-from ai_assistant.dao import dao_factory
+from ai_assistant.dao.dao_factory import mongoCollection
 from ai_assistant.core.config import get_settings
 from datetime import datetime
 from openai import OpenAI
@@ -16,10 +16,10 @@ ofreciendo respuestas claras, útiles y empáticas. Tu propósito es guiar al cl
 def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
     
     # Paso 0: get mongo connection
-    collection = dao_factory.get_connection()
+    # collection = dao_factory.get_connection()
     
     # Paso 1: Obtener o crear el usuario
-    usuario_id, mensajes_existentes = ai_assistant_upsert(collection).obtener_o_crear_usuario_sin_mensaje(origen, identificador)
+    usuario_id, mensajes_existentes = ai_assistant_upsert(mongoCollection.collection).obtener_o_crear_usuario_sin_mensaje(origen, identificador)
     
     print(f"ID del usuario: {usuario_id}")
     print(f"Mensajes existentes: {mensajes_existentes}")
@@ -71,7 +71,7 @@ def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
     ]
 
     # Paso 5: Guardar en MongoDB
-    ai_assistant_add(collection).agregar_mensajes_a_historial_existente(
+    ai_assistant_add(mongoCollection.collection).agregar_mensajes_a_historial_existente(
         usuario_id, origen, identificador, nuevos_mensajes
     )
 

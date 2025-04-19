@@ -1,10 +1,12 @@
 from pymongo import MongoClient
 from ai_assistant.core.config import get_settings
 
-# === Configuración de conexión ===
-client = MongoClient(get_settings().MONGODB_URI)
-db = client[get_settings().DB_NAME]
-collection = db[get_settings().COLLECTION_NAME]
+
+class mongoCollection:    
+    # === Configuración de conexión ===
+    client = MongoClient(get_settings().MONGODB_URI)
+    db = client[get_settings().DB_NAME]
+    collection = db[get_settings().COLLECTION_NAME]
 
 def get_connection():
-    return collection
+    return mongoCollection.collection
