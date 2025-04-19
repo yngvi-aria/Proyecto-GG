@@ -4,12 +4,6 @@ from ai_assistant.dao import dao_factory
 from datetime import datetime
 from openai import OpenAI
 
-# Configura tu clave de API de OpenAI (asegúrate de protegerla en producción) nuevo cambios
-#openai.api_key = "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"
-
-#api_key = os.getenv("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")
-
-#client = OpenAI(api_key=api_key)
 client = OpenAI(api_key="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") 
 
 # Contexto de negocio para venta de casas (puedes hacerlo más complejo si lo deseas)
