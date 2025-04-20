@@ -1,7 +1,7 @@
-from ai_assistant.dao.dao_ai_assistant_add import ai_assistant_add
-from ai_assistant.dao.dao_ai_assistant_upsert import ai_assistant_upsert
-from ai_assistant.dao.dao_factory import mongoCollection
-from ai_assistant.core.config import get_settings
+from dao.dao_ai_assistant_add import ai_assistant_add
+from dao.dao_ai_assistant_upsert import ai_assistant_upsert
+from dao.dao_factory import mongoCollection
+from core.config import get_settings
 from datetime import datetime
 from openai import OpenAI
 

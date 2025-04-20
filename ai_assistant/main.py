@@ -1,4 +1,4 @@
-from ai_assistant.api import api_ai_assistant_real_estate
+from api import api_ai_assistant_real_estate
 from fastapi import FastAPI
 from pydantic import BaseModel
 

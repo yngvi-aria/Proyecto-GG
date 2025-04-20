@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from ai_assistant.core.config import get_settings
+from core.config import get_settings
 
 
 class mongoCollection:    

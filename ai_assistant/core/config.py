@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     COLLECTION_NAME: str
 
     class Config:
-        env_file = "ai_assistant/.env"  # Indica que las variables están en un archivo .env
+        env_file = ".env"  # Indica que las variables están en un archivo .env
         env_file_encoding = "utf-8"
 
 @lru_cache()
