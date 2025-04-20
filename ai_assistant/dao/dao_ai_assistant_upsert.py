@@ -26,20 +26,21 @@ class ai_assistant_upsert:
         else:
             # Crear nuevo usuario sin mensajes
             nuevo_usuario = {
-                "nombre": "Juan Pérez",
+                "datos_generales": {},
+                "direccion":{},
+                "fecha_nacimiento":{},
+                "fecha_creacion": actual_datetime,
+                "ultima_interaccion": actual_datetime,
                 "numeros_whatsapp": [identificador] if origen == "whatsapp" else [],
                 "cuentas_instagram": [identificador] if origen == "instagram" else [],
                 "cuentas_facebook": [identificador] if origen == "facebook" else [],
-                "fecha_creacion": actual_datetime,
-                "ultima_interaccion": actual_datetime,
                 "historiales": [
                     {
                         "origen": origen,
                         "identificador": identificador,
                         "mensajes": []
                     }
-                ],
-                "etiquetas": ["cliente nuevo", "lead"]
+                ]
             }
 
             resultado = self.collection.insert_one(nuevo_usuario)

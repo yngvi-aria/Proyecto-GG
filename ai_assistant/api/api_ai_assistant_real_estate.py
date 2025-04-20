@@ -31,7 +31,7 @@ def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
         "fecha": datetime.now().astimezone()
     })
 
-    # Paso 3: Llamar a OpenAI con el historial y contexto
+    # Paso 3: Arma el mensaje para ser enviado a OpenAI con el historial y contexto
     mensajes_para_openai = [{"role": "system", "content": CONTEXTO_NEGOCIO}]
     for m in mensajes_existentes:
         mensajes_para_openai.append({
@@ -59,12 +59,12 @@ def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
     # Paso 4: Preparar los nuevos mensajes para guardar en MongoDB
     nuevos_mensajes = [
         {
-            "rol": "usuario",
+            "rol": "user",
             "mensaje": mensaje,
             "fecha": datetime.now().astimezone()
         },
         {
-            "rol": "asistente",
+            "rol": "assistant",
             "mensaje": mensaje_chatGPT,
             "fecha": datetime.now().astimezone()
         }
