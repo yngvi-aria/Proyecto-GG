@@ -21,8 +21,8 @@ def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
     # Paso 1: Obtener o crear el usuario
     usuario_id, mensajes_existentes = ai_assistant_upsert(mongoCollection.collection).obtener_o_crear_usuario_sin_mensaje(origen, identificador)
     
-    print(f"ID del usuario: {usuario_id}")
-    print(f"Mensajes existentes: {mensajes_existentes}")
+    #print(f"ID del usuario: {usuario_id}")
+    #print(f"Mensajes existentes: {mensajes_existentes}")
 
     # Paso 2: Agregar el mensaje del usuario al historial actual
     mensajes_existentes.append({
@@ -39,6 +39,8 @@ def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
             "content": m["mensaje"]
         })
     mensajes_para_openai.append({"role": "user", "content": mensaje})
+    
+    print(f"Mensajes para openai: {mensajes_para_openai}")
 
     #respuesta_openai = openai.ChatCompletion.create(
     #    model="gpt-3.5-turbo",
