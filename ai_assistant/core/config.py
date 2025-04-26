@@ -6,6 +6,8 @@ class Settings(BaseSettings):
     MONGODB_URI: str
     DB_NAME: str
     COLLECTION_NAME: str
+    DEEPSEEK_API_KEY: str
+    DEEPSEEK_API_URL: str
 
     class Config:
         env_file = ".env"  # Indica que las variables están en un archivo .env

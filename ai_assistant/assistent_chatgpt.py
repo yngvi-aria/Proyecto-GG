@@ -1,4 +1,4 @@
-from api import api_ai_assistant_real_estate
+from api import api_ai_openAI
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -13,7 +13,7 @@ class MensajeEntrada(BaseModel):
     identificador: str
     mensaje: str
 
-@app.post("/asistente/inmobiliario")
-def asistente_inmobiliario(datos: MensajeEntrada):
-    mensaje_chatGPT=api_ai_assistant_real_estate.ejecutar_flujo_mensajes (datos.origen, datos.identificador, datos.mensaje)
+@app.post("/assistent/chatgpt")
+def asistente_chatgpt(datos: MensajeEntrada):
+    mensaje_chatGPT=api_ai_openAI.ejecutar_flujo_mensajes (datos.origen, datos.identificador, datos.mensaje)
     return {"respuesta": mensaje_chatGPT}
