@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     COLLECTION_NAME: str
     DEEPSEEK_API_KEY: str
     DEEPSEEK_API_URL: str
+    LLAMA_API_KEY: str
+    LLAMA_API_URL:str
 
     class Config:
         env_file = ".env"  # Indica que las variables están en un archivo .env
