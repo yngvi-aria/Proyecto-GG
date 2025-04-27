@@ -60,10 +60,10 @@ def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
     }
     
     try:
-        #response = requests.post(get_settings().DEEPSEEK_API_URL, headers=headers, json=payload)
-        #response.raise_for_status()
-        #mensaje_deepseek = response.json()["choices"][0]["message"]["content"]
-        mensaje_deepseek = "respuesta de prueba"
+        response = requests.post(get_settings().DEEPSEEK_API_URL, headers=headers, json=payload)
+        response.raise_for_status()
+        mensaje_deepseek = response.json()["choices"][0]["message"]["content"]
+        #mensaje_deepseek = "respuesta de prueba"
     except Exception as e:
         error_msg = f"Error de conexión con DeepSeek API: {str(e)}"
         print(error_msg)
