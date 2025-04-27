@@ -28,6 +28,8 @@ Eres **GIGI**, un asistente de IA especializado en bienes raíces, diseñado par
 
 def ejecutar_flujo_mensajes(origen: str, identificador: str, mensaje: str):
     # Paso 1: Obtener o crear el usuario (sin cambios)
+    print ("##### Nuevo mensaje recibiro por API Deepseek:" + mensaje)
+    
     usuario_id, mensajes_existentes = ai_assistant_upsert(mongoCollection.collection).obtener_o_crear_usuario_sin_mensaje(origen, identificador)
     
     # Paso 2: Agregar mensaje del usuario al historial (sin cambios)
